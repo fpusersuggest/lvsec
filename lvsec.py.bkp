@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+<<<<<<< HEAD
 import apt, sys, progressbar, argparse, argcomplete
 import db
 
@@ -25,3 +26,15 @@ else:
     print 'Il database esiste, si suppone che esista anche lo schema.'
 
 conn.close()
+=======
+
+import apt, sys, progressbar, argparse, argcomplete
+
+pArgs=argparse.ArgumentParser(description='lvsec, check system security on Ubuntu or Fedora distro',epilog='Software to check ubuntu installed packages')
+pArgs.add_argument('--root-apt', help='Indica la root dove si trava la cache di APT',default='/')
+pArgs.add_argument('--save-dir',help='Indica la cartella dove salvare di pacchetti .deb')
+args = pArgs.parse_args()
+
+status=apt.Cache(rootdir=fileStatus)
+
+>>>>>>> 7ab4edb4bf305acd1fcb2c2d6dc40b0a7ee773b8
