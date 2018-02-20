@@ -10,6 +10,16 @@ v_file_db="dblvsec.db"
 v_file_sch="dblvsec.sql"
 
 
+def f_query(db_name, sql, data):
+    with sqlite3.connect(db_name) as db:
+        cursor = db.cursor()
+        cursor.execute("PRAGMA Foreign_Keys = ON")
+        cursor.execute(sql, data)
+        result = cursor.fetchall()
+        db.commit()
+        return result
+        
+    
 def f_conn(file2):
     try:
         c=sqlite3.connect(file2)
@@ -19,11 +29,11 @@ def f_conn(file2):
 
 def f_create_db(file1):
     f_print("DB not found, I am going to create it")
-    conn=sqlite3.connect(v_file_db)
-    cur=conn.cursor()
+    db=sqlite3.connect(v_file_db)
+    cur=db.cursor()
     f=open(file1, "r")
     cur.executescript(f.read())
-    conn.commit()
+    db.commit()
     f_ok()
 
 def f_create_dbfile():
