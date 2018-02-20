@@ -10,8 +10,8 @@ v_file_db="dblvsec.db"
 v_file_sch="dblvsec.sql"
 
 
-def f_query(db_name, sql, data):
-    with sqlite3.connect(db_name) as db:
+def f_query(sql, data):
+    with sqlite3.connect(v_file_db) as db:
         cursor = db.cursor()
         cursor.execute("PRAGMA Foreign_Keys = ON")
         cursor.execute(sql, data)
@@ -39,6 +39,17 @@ def f_create_db(file1):
 def f_create_dbfile():
     newuuid=uuid1()
     data=datetime.now()
+    g=str(data.day)
+    m=str(data.month)
+    y=str(data.year)
+    h=str(data.hour)
+    mi=str(data.minute)
+    s=str(data.second)
+    desc=h+":"+mi+":"+s+"  "+g+"-"+m+"-"+y
+    sql = """
+    INSERT INTO {0}(desc,data,uuid,tipo,concluso) VALUES (?,?,?,?,?)
+    """.format(table_name)
+    f_query(sql,(desc,data,newuuid,tipo,concluso))
     
 
 
