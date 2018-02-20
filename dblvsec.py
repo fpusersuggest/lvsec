@@ -3,6 +3,7 @@
 import os, sqlite3
 from tasklog import *
 from uuid import uuid1
+from datetime import datetime
 
 #__name__="db"
 v_file_db="dblvsec.db"
@@ -24,6 +25,11 @@ def f_create_db(file1):
     cur.executescript(f.read())
     conn.commit()
     f_ok()
+
+def f_create_dbfile():
+    newuuid=uuid1()
+    data=datetime.now()
+    
 
 
 def main():
