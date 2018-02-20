@@ -11,7 +11,7 @@ v_fine='\033[1;m'
 
 def f_ok():
 	"""Task log pretty output"""
-        print(v_ok, end='')
+        print(v_ok)
 		 
 def f_print(t):
     n="."*(50-len(t))+" " 
@@ -19,6 +19,6 @@ def f_print(t):
 
 def f_fail():
 	"""Task log pretty output"""
-        print(v_fa, end='')
+        print(v_fa)
 
 

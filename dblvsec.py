@@ -2,7 +2,7 @@
 
 import os, sqlite3
 from tasklog import *
-from uuid import import uuid1
+from uuid import uuid1
 
 #__name__="db"
 v_file_db="dblvsec.db"
