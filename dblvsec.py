@@ -36,7 +36,7 @@ def f_create_db(file1):
     db.commit()
     f_ok()
 
-def f_create_dbfile():
+def f_create_dbfile(tipo):
     newuuid=uuid1()
     data=datetime.now()
     g=str(data.day)
@@ -45,6 +45,7 @@ def f_create_dbfile():
     h=str(data.hour)
     mi=str(data.minute)
     s=str(data.second)
+    concluso=0
     desc=h+":"+mi+":"+s+"  "+g+"-"+m+"-"+y
     sql = """
     INSERT INTO {0}(desc,data,uuid,tipo,concluso) VALUES (?,?,?,?,?)
@@ -61,9 +62,8 @@ def main():
     if os.path.isfile(v_file_db) is not True:
         f_fail()
         f_create_db(v_file_sch)
-    else:
-        m_conn=f_conn(v_file_db)
-        f_ok()
+    f_create_dbfile(0)
+    f_create_pkg()
 
 
 if __name__ == '__main__':
