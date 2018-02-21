@@ -1,0 +1,15 @@
+
+LINKS
+=====
+
+https://www.blackhat.com/docs/asia-17/materials/asia-17-Matrosov-The-UEFI-Firmware-Rootkits-Myths-And-Reality.pdf
+http://resources.infosecinstitute.com/nsa-bios-backdoor-god-mode-malware-deitybounce/
+https://firmwaresecurity.com/2015/07/17/secure-boot-strength-varies-by-linux-implementation/
+https://github.com/rmusser01/Infosec_Reference/blob/master/Draft/Rootkits.md
+https://github.com/REhints/Publications/tree/master/Conferences/ZeroNights_2016
+https://github.com/REhints/Publications/tree/master/Conferences/
+https://github.com/chipsec/chipsec
+https://www.welivesecurity.com/2017/10/19/malware-firmware-exploit-sense-security/
+https://github.com/rmusser01/Infosec_Reference/tree/master/Draft
+
+
