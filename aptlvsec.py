@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-from tasklog import *
 import apt_pkg
 import apt
 
@@ -21,13 +20,25 @@ def f_geturi():
 
 
 def f_getpkg(pkg):
+    print pkg
+    pkg="linux-image-4.4.0-116-generic"
+    p = apt.progress.text.AcquireProgress()
     c=apt.Cache()
+    print c
     uri=c[pkg].candidate.uri
-    aqui=apt_pkg.Acquire()
+    print uri
+    aqui=apt_pkg.Acquire(p)
+    print aqui
     apt_pkg.AcquireFile(aqui,uri=uri)
-    aqui.run()
+    res=aqui.run()
 
-
-
-
-
+#def f_getlist():
+#    list=apt_pkg.SourceList()
+#    list.read_main_list()
+#    for a in list:
+#        print a
+#
+#def f_test():
+#    p=apt.progress.text.AcquireProgress()
+#    f=apt_pkg.Acquire(p)
+#
