@@ -1,9 +1,14 @@
 #!/usr/bin/env python
 
+
+aptdir='lvaptarchives'
 import apt_pkg
 import apt
 from time import sleep
 from os import uname
+from os import path
+from os import mkdir
+
 
 def f_getpkgs(file):
     with apt_pkg.TagFile('/var/lib/dpkg/status') as tagfile:
@@ -16,13 +21,13 @@ def f_geturi():
             print p.candidate.uri
 
 def f_getpkg(pkg):
-    pkg="linux-image-4.4.0-116-generic"
+    if not path.isdir(aptdir):
+        mkdir(aptdir)
     p=apt.progress.text.AcquireProgress()
     c=apt.Cache()
     u=c[pkg].candidate.uri
     a=apt_pkg.Acquire(p)
-    acq=apt_pkg.AcquireFile(a,uri=u)
-    #print acq
+    acq=apt_pkg.AcquireFile(a,uri=u,destdir=aptdir)
     a.run()
 
 def f_getkernel():
