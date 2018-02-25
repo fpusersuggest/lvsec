@@ -21,12 +21,16 @@ def f_getpkg(pkg):
     c=apt.Cache()
     u=c[pkg].candidate.uri
     a=apt_pkg.Acquire(p)
-    apt_pkg.AcquireFile(a,uri=u)
+    acq=apt_pkg.AcquireFile(a,uri=u)
+    #print acq
     a.run()
 
+def f_getkernel():
+    kv="linux-image-"+uname()[2]
+    f_getpkg(kv)
 
 
-f_getpkg("linux-image-4.4.0-116-generic")
+
 
 
 
