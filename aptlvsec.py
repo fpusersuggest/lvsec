@@ -38,15 +38,16 @@ def f_getkernel():
 
 
 
-
-#def f_getlist():
-#    list=apt_pkg.SourceList()
-#    list.read_main_list()
-#    for a in list:
-#        print a
+def f_getlist():
+    list=apt_pkg.SourceList()
+    list.read_main_list()
+    for a in list:
+        print a
 #
 #def f_test():
 #    p=apt.progress.text.AcquireProgress()
 #    f=apt_pkg.Acquire(p)
 #
 #
+f_getlist()
+
