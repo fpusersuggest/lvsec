@@ -1,2 +1,5 @@
 http://www.playterm.org/
+https://github.com/ceph/simplegpt/blob/master/simplegpt.py
+https://github.com/n0fate/raw/blob/master/gpt_parser.py
+https://raw.githubusercontent.com/gleeda/misc-scripts/master/misc_python/mbr_parser.py
 
